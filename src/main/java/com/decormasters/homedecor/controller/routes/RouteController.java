@@ -7,19 +7,31 @@ import org.springframework.web.bind.annotation.PathVariable;
 @Controller
 public class RouteController {
 
-    @GetMapping("/sign-up")
-    public String signUp() {
-        return "auth/signUp";
-    }
+    // 기준 경로 : application.yml의 spring:mvc:view
 
-    @GetMapping("/login")
-    public String login() {
-        return "auth/login";
+    @GetMapping("/")
+    public String index() {
+        return "index";
     }
 
     @GetMapping("/post/{postId}")
     public String postDetailPage(@PathVariable Long postId) {
         return "components/detail-page";
     }
+
+    // 아래는 React로 migration
+//    @GetMapping("/sign-up")
+//    public String signUp() {
+//        return "auth/signUp";
+//    }
+//
+//    @GetMapping("/login")
+//    public String login() {
+//        return "auth/login";
+//    }
+
+
 }
+
+
 
