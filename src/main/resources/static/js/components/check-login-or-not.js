@@ -2,7 +2,7 @@
 //              1) 로그인 여부에 따라 로그인 버튼을 로그인/로그아웃 버튼으로 변경
 //              2) 로그인 여부에 따라 a 태그를 누를 시에 다음 처리할 내용 변경
 
-import { renderMe } from "./navigation.js";
+import { renderUserProfile } from "./navigation.js";
 
 // 1. 로그인 여부 확인(로그인 한 경우, login.js의 코드에 의하여 localStorage에 코드가 저장됨)
 const accessToken = localStorage.getItem("accessToken");

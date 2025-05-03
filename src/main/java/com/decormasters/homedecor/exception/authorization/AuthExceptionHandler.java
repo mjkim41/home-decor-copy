@@ -55,7 +55,6 @@ public class AuthExceptionHandler extends RuntimeException{
     // HttpServletRequest 인자로 받는 이유 request.getReqeusturl() 사용 목적
     @ExceptionHandler(AuthException.class)
     public ResponseEntity<ErrorResponse> AuthExceptionHandler(AuthException exception, HttpServletRequest request) {
-
         log.error("Signup/Login Exception Occurred: {}", exception.getMessage());
 
         ErrorResponse errorResponse = ErrorResponse.builder()
@@ -68,9 +67,8 @@ public class AuthExceptionHandler extends RuntimeException{
                 .build();
 
         return ResponseEntity
-                .badRequest()
+                .status(exception.getErrorCode().getStatus())  // 에러 코드에 맞는 상태 코드 사용
                 .body(errorResponse);
-
     }
 
     // 나머지 익셉션 처리

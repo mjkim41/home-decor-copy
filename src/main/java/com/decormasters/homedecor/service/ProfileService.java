@@ -36,11 +36,10 @@ public class ProfileService {
 
     /**
      * 로그인한 유저 정보를 반환하는 처리
-     *
      * @param username - 인증된 사용자 이름 (스프링 시큐리티에 의해 컨트롤러에서 받아옴)
      * @return 인증된 사용자의 프로필정보 (이름, 사용자계정, 프로필사진)
      */
-    @Transactional(readOnly = true)   // SELECT만 하고 있을 경우
+    @Transactional(readOnly = true)
     public MeResponse getLoggedInUser(String username) {
         Member foundMember = getMember(username);
         return MeResponse.from(foundMember);
